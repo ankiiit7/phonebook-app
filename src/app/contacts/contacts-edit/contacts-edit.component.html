@@ -1,0 +1,118 @@
+<div class="container" *ngIf="contact && contact.firstname">
+    <div class="row">
+        <div class="col-md-6">
+        
+<form (ngSubmit)="save(f.value)" #f="ngForm">
+        <div class="col-md-12">
+            <label for="">FirstName:</label>
+            <span class="required" style="color: red;">*</span>
+            <input 
+            required
+            type="text"
+            id="firstname"
+            #firstname="ngModel"
+            [(ngModel)] = "contact.firstname"   
+            name="firstname"
+             class="form-control">
+             <p style="color: red;" *ngIf="firstname.touched && firstname.invalid">
+               FirstName is Required
+             </p>
+
+        </div>
+        <div class="col-md-12">
+                <label class="mt-2" for="">Lastname:</label>
+                <span class="required" style="color: red;">*</span>
+                <input 
+                required
+                type="text"
+                [(ngModel)]="contact.lastname"
+             
+              #lastname="ngModel"
+                name="lastname"
+                 class="form-control">
+                 <p style="color: red;" *ngIf="lastname.touched && lastname.invalid">
+                    Last Name is Required
+                 </p>
+          </div>
+          <div class="col-md-12">
+            <label for="">ImageUrl:</label>
+            <input 
+            required
+            type="text"
+            [(ngModel)]="contact.image"
+         
+          #image="ngModel"
+            name="image"
+             class="form-control">
+             <p style="color: red;" *ngIf="image.touched && image.invalid">
+                Image is Required
+             </p>
+      </div>
+            <div class="col-md-12">
+                    <label for="">E-mail Address:</label>
+                    <span class="required" style="color: red;">*</span>
+                    <input 
+                    type="text"
+                   
+                    name="email" 
+                    required
+                    #email="ngModel"
+                    [(ngModel)]="contact.email"
+                    class="form-control"
+                    >
+                    <p style="color: red;" *ngIf="email.touched && email.invalid">
+                        Email Address is Required
+                    </p>
+              </div>
+                <div class="col-md-12">
+                        <label for="">Contact Number:</label>
+                        <span class="required" style="color: red;">*</span>
+                        <input 
+                        type="phone" 
+                       
+                      
+                       required
+                       #phone="ngModel"
+                       [(ngModel)]="contact.phone"
+                        name="phone"
+                        class="form-control"
+                        [max]="20">
+                        <div *ngIf="contact.touched && contact.invalid">
+                        <p style="color: red;" *ngIf="contact.errors.required">
+                            Contact Number is Required
+                        </p>
+                        <p style="color: red;" *ngIf="contact.errors.max">
+                            Contact Number should be of 10 Digits
+                        </p>
+                        </div>
+                  </div>
+                    <br>
+                    <div id="two" >
+                            <button type="submit" (click)="onUpdate()" style="background-color: #61d4b3;"  
+                            class="btn mt-5 mr-3 ml-4 " >SUBMIT</button> 
+                            <button type="button" class="btn mt-5" (click)="onDelete()" 
+                            style="background-color: #61d4b3;" > Delete </button>
+                        
+                    
+                    </div>
+                      
+                  
+                </form>
+
+                    
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" [src]="image.value" alt="">
+                <div class="card-body">
+                  <h2 class="card-title">{{firstname.value}} {{lastname.value}}</h2>
+                  <h5 class="card-title">{{phone.value}}</h5>
+                  <p class="card-text">{{email.value}}</p>
+                  <!-- <a href="#" class="btn">Go somewhere</a> -->
+                </div>
+              </div>
+          </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,8 @@
+#one{
+    width: 50%;
+    
+}
+#two{
+    display:flex;
+    justify-content: center;
+}

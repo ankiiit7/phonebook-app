@@ -1,0 +1,15 @@
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+input:hover{
+    box-shadow: 0px 0px 5px 2px lightgray;
+}
+button{
+    margin-top: 10px;
+}
+button:hover{
+    box-shadow: 0px 0px 5px 2px lightgray;
+}
+.required input:after { content:"*"; }
+

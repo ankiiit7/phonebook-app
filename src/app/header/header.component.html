@@ -1,0 +1,53 @@
+<nav    class="navbar navbar-expand-md  ">
+        <!-- Brand -->
+        <strong>  <a class="navbar-brand" style="cursor: pointer; 
+         font-family: 'Sriracha', cursive; font-size: x-large; color: black;"> 
+         <i class="fa fa-address-book-o" style="font-size:30px;color:black"></i>  Phonebook</a></strong>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" >
+          <ul class=" nav navbar-nav"  >
+            <li routerLinkActive="active"  *ngIf="isAuthenticated"  >
+              <a  class="nav-link" routerLink="contacts"
+               style="cursor: pointer; color:black;"> <STRong> ALL Contacts </STRong></a>
+            </li>
+            <li   *ngIf="isAuthenticated">
+              <a class="nav-link" routerLink="favourites"  style="cursor: pointer;color: black;">
+                <strong> Favourites </strong></a>
+            </li>
+            <li class="nav-item" *ngIf="isAuthenticated">
+              <a routerLink="emergency" class="nav-link"  style="cursor: pointer; color: black;">
+               <strong> Emergency </strong></a>
+            </li>
+            <li  *ngIf="!isAuthenticated" >
+              <a routerLink="auth" class="nav-link" style="cursor: pointer; color: black;">
+                <strong> Authenticate </strong></a>
+            </li>
+           
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated" (click)="onLogOut()"
+            style="cursor: pointer; float: right;  color: black;"><a  class="nav-link" >
+             <strong> Log Out </strong></a></li>
+
+            
+            
+          </ul>
+          
+           
+        </div>
+       
+              
+      </nav>
+      <!-- <form class="form-inline md-form form-sm active-purple-2 mt-2"
+                 style="display: flex;justify-content: center;">
+            <input 
+             class="form-control form-control-sm mr-3 w-75 mt-3" type="text" placeholder="Search"
+              aria-label="Search" >
+              <i class="fa fa-search"></i>
+
+          </form> -->
+         
